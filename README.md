@@ -153,10 +153,10 @@ https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows
 > mv 'C:\Program Files\InfluxData\influxdb2-2.0.9-windows-amd64' 'C:\Program Files\InfluxData\influxdb'
 ```
 Start Influx 
-´´´
+```
 > cd -Path 'C:\Program Files\InfluxData\influxdb'
 > ./influxd
-´´´
+```
 Added MQTT Consumer Input Plugin
 
 install telegraf
