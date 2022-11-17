@@ -143,6 +143,12 @@ How is the data transmitted to the internet or local server? Describe the packag
 - [ ] What alternatives did you evaluate?
 - [ ] What are the design limitations of your choices?
 
+
+
+
+
+
+
 ### Visualisation and user interface
 Download and install Influx db 
 
@@ -162,13 +168,30 @@ Added MQTT Consumer Input Plugin
 install telegraf
 Telegraf is an agent collect data process and aggreatagte data. 
 That influx will collect 
-
+Install from https://portal.influxdata.com/downloads/ by
+```
+wget https://dl.influxdata.com/telegraf/releases/telegraf-1.24.3_windows_amd64.zip -UseBasicParsing -OutFile telegraf-1.24.3_windows_amd64.zip
+Expand-Archive .\telegraf-1.24.3_windows_amd64.zip -DestinationPath 'C:\Program Files\InfluxData\telegraf'
+```
 config file that will send data
 
 Influx opendb open source database
 Grafana is opensource data visualizition create dashboard and so on. 
 
-Will use Docker Compose
+
+In Influx click Data, then Telegraf tab , Create Telegraf configurations Select system copy variable 
+change from export to set in windows
+
+
+//Will use Docker Compose
+//Docker Compose is a tool to manage multiple containers
+
+
+
+
+
+
+
 
 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
