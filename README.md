@@ -150,9 +150,14 @@ How is the data transmitted to the internet or local server? Describe the packag
 
 
 ### Visualisation and user interface
-Download and install Influx db 
-
-https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows
+I will vizulize my data on Grafana. Grafana is opensource data visualizition create dashboard and so on.
+ To do so I will send data from my MQTT broker to NodeRed--> InfluxDb --> Grafana
+Influx open source database
+Hence you'll need to first download NodeRed, InfluxDb and Grafana
+#### Download InfluxDb
+How to download Influx to Windows.
+Go to https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows and download latest veresion
+Install by running following commands in Powershell.
 
 ```
 > Expand-Archive .\influxdb2-2.0.9-windows-amd64.zip -DestinationPath 'C:\Program Files\InfluxData\'
@@ -163,28 +168,37 @@ Start Influx
 > cd -Path 'C:\Program Files\InfluxData\influxdb'
 > ./influxd
 ```
-Added MQTT Consumer Input Plugin
 
-install telegraf
-Telegraf is an agent collect data process and aggreatagte data. 
-That influx will collect 
-Install from https://portal.influxdata.com/downloads/ by
-```
-wget https://dl.influxdata.com/telegraf/releases/telegraf-1.24.3_windows_amd64.zip -UseBasicParsing -OutFile telegraf-1.24.3_windows_amd64.zip
-Expand-Archive .\telegraf-1.24.3_windows_amd64.zip -DestinationPath 'C:\Program Files\InfluxData\telegraf'
-```
-config file that will send data
-
-Influx opendb open source database
-Grafana is opensource data visualizition create dashboard and so on. 
+#### Download Nodered
 
 
-In Influx click Data, then Telegraf tab , Create Telegraf configurations Select system copy variable 
-change from export to set in windows
+
+#### Download Grafana
 
 
-//Will use Docker Compose
-//Docker Compose is a tool to manage multiple containers
+#### Setup
+
+Create your database in influxdb. Go to Data-> Buckets and create a new bucke, mine is called nodered.
+![image](https://user-images.githubusercontent.com/44947706/202447734-57032cb7-9555-45c3-8b52-59737c9295dd.png)
+
+Then continue to the tab Tokens in Influx and click on the token called "{your username}'s Token" and copy the Token from there which we soon will paste into nodered.
+![image](https://user-images.githubusercontent.com/44947706/202448171-0167b8cc-d63f-415c-a1a6-be37c75eb5ac.png)
+
+
+Start NodeRed add a "MQTT in node", add your MQTT broker by entering server adress port,
+![image](https://user-images.githubusercontent.com/44947706/202446286-97d6c9da-cee3-4d72-90ff-4b84264a4fe3.png)
+Then add the topic you wnat to subscribe to.
+![image](https://user-images.githubusercontent.com/44947706/202446302-81ad4c73-6d21-4cd8-8fb0-fad6872a8eb2.png)
+
+You should now be able to collect data from the brooker, add a debug node to confirm that. After you recevie data you want to save the data in a database in influx.Go to manage palette and install "node-red-contrib-influxdb" in order to get the influxdb nodes.
+
+Add a "influxdb out" node and configure it as follows. In the server field add a new server, give it a name, choose version 2, enter the url of the influx http://localhost:8086. Paste the token that was copied from influxdb.
+![image](https://user-images.githubusercontent.com/44947706/202449275-c6973afd-83f2-4d58-9540-d2f05cca0c67.png)
+Continue to add your Organization name, bucketname and give your measurement a name.
+![image](https://user-images.githubusercontent.com/44947706/202449685-dc931f9b-2b57-4cb8-9c82-41b379be9206.png)
+
+Deploy your changes in nodered.
+
 
 
 
