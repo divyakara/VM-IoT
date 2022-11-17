@@ -193,7 +193,9 @@ Then add the topic you wnat to subscribe to.
 You should now be able to collect data from the brooker, add a debug node to confirm that. After you recevie data you want to save the data in a database in influx.Go to manage palette and install "node-red-contrib-influxdb" in order to get the influxdb nodes.
 
 Add a "influxdb out" node and configure it as follows. In the server field add a new server, give it a name, choose version 2, enter the url of the influx http://localhost:8086. Paste the token that was copied from influxdb.
+
 ![image](https://user-images.githubusercontent.com/44947706/202449275-c6973afd-83f2-4d58-9540-d2f05cca0c67.png)
+
 Continue to add your Organization name, bucketname and give your measurement a name.
 ![image](https://user-images.githubusercontent.com/44947706/202449685-dc931f9b-2b57-4cb8-9c82-41b379be9206.png)
 
@@ -216,6 +218,12 @@ Go to dashboards and create a new one in Grafana. Add a panel, and in the query 
 
 Final Grafana display 
 ![image](https://user-images.githubusercontent.com/44947706/202490089-88e8b039-d1e2-4e13-ac2f-d74e65e664fb.png)
+
+
+
+
+
+
 
 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
