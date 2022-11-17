@@ -92,10 +92,46 @@ Explain all material that is needed. All sensors, where you bought them and thei
 
 How is the device programmed. Which IDE are you using. Describe all steps from flashing the firmware, installing plugins in your favorite editor. How flashing is done on MicroPython. The aim is that someone should be able to understand how to reproduce your project.
 
-- [ ] Chosen IDE
-- [ ] How the code is uploaded
-- [ ] How is your project structured (important)
+- [ ] Chosen IDE         Thonny 
+- [ ] How the code is uploaded  ?? 
+- [ ] How is your project structured (important) ??? 
 - [ ] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
+
+I chose the IDE Thonny which was downloaded from their webpage https://thonny.org/.
+Flashing Firmware with micro python had to download  esptool.py
+steps here https://randomnerdtutorials.com/flashing-micropython-firmware-esptool-py-esp32-esp8266/
+
+#### Download InfluxDb
+How to download Influx to Windows.
+Go to https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows and download latest veresion
+Install by running following commands in Powershell.
+
+```
+> Expand-Archive .\influxdb2-2.0.9-windows-amd64.zip -DestinationPath 'C:\Program Files\InfluxData\'
+> mv 'C:\Program Files\InfluxData\influxdb2-2.0.9-windows-amd64' 'C:\Program Files\InfluxData\influxdb'
+```
+Start Influx 
+```
+> cd -Path 'C:\Program Files\InfluxData\influxdb'
+> ./influxd
+```
+
+#### Download Nodered
+In order to install Nodered you need to first download nodejs from their webpage: https://nodejs.org/en/
+Then open a command prompt and enter 
+```
+npm install -g --unsafe-perm node-red
+```
+Then run node-red by typing in the command prompt
+```
+node-red start 
+```
+Go to http://localhost:1880/ (default) in your browser to start node-red.
+
+#### Download Grafana
+Download the Grafana installer from https://grafana.com/grafana/download?platform=windows and run it.
+Go to the Grafana port http://localhost:3000/ (default)
+
 
 ### Putting everything together
 
@@ -157,36 +193,6 @@ I will vizulize my data on Grafana. Grafana is opensource data visualizition cre
 Influx open source database
 Hence you'll need to first download NodeRed, InfluxDb and Grafana
 
-#### Download InfluxDb
-How to download Influx to Windows.
-Go to https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows and download latest veresion
-Install by running following commands in Powershell.
-
-```
-> Expand-Archive .\influxdb2-2.0.9-windows-amd64.zip -DestinationPath 'C:\Program Files\InfluxData\'
-> mv 'C:\Program Files\InfluxData\influxdb2-2.0.9-windows-amd64' 'C:\Program Files\InfluxData\influxdb'
-```
-Start Influx 
-```
-> cd -Path 'C:\Program Files\InfluxData\influxdb'
-> ./influxd
-```
-
-#### Download Nodered
-In order to install Nodered you need to first download nodejs from their webpage: https://nodejs.org/en/
-Then open a command prompt and enter 
-```
-npm install -g --unsafe-perm node-red
-```
-Then run node-red by typing in the command prompt
-```
-node-red start 
-```
-Go to http://localhost:1880/ (default) in your browser to start node-red.
-
-#### Download Grafana
-Download the Grafana installer from https://grafana.com/grafana/download?platform=windows and run it.
-Go to the Grafana port http://localhost:3000/ (default)
 
 #### Setup everything together
 
