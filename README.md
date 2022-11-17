@@ -170,8 +170,15 @@ Start Influx
 ```
 
 #### Download Nodered
-
-
+In order to install Nodered you need to first download nodejs from their webpage: https://nodejs.org/en/
+Then open a command prompt and enter 
+```
+npm install -g --unsafe-perm node-red
+```
+Then run node-red by typing in the command prompt
+```
+node-red start 
+```
 
 #### Download Grafana
 
@@ -217,9 +224,7 @@ Go to dashboards and create a new one in Grafana. Add a panel, and in the query 
 
 
 Final Grafana display 
-![image](https://user-images.githubusercontent.com/44947706/202490089-88e8b039-d1e2-4e13-ac2f-d74e65e664fb.png)
-
-
+![image](https://user-images.githubusercontent.com/44947706/202492976-29168314-f3f6-481c-8860-96df5c51f5e4.png)
 
 
 
