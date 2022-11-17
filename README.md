@@ -100,6 +100,7 @@ How is the device programmed. Which IDE are you using. Describe all steps from f
 ### Putting everything together
 
 How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
+![circuit (1)](https://user-images.githubusercontent.com/44947706/202500320-57a9241d-7576-4ee7-90d5-d1e47466bbea.png)
 
 - [ ] Circuit diagram (can be hand drawn)
 - [ ] Electrical calculations
@@ -107,6 +108,7 @@ How is all the electronics connected? Describe all the wiring, good if you can s
 - [ ] Discussion about a way forward - is it possible to scale?
 
 ### Platforms and infrastructure
+
 
 Describe your choice of platform(s). You need to describe how the IoT-platform works, and also the reasoning and motivation about your choices. Have you developed your own platform, or used 
 
@@ -136,9 +138,9 @@ s.send(package)
 
 How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
 
-- [ ] How often is the data sent? 
-- [ ] Which wireless protocols did you use (WiFi, LoRa, etc ...)?
-- [ ] Which transport protocols were used (MQTT, webhook, etc ...)
+- [ ] How often is the data sent?   Every minute
+- [ ] Which wireless protocols did you use (WiFi, LoRa, etc ...)?       Wifi
+- [ ] Which transport protocols were used (MQTT, webhook, etc ...)      MQTT
 - [ ] Elaborate on the design choices regarding data transmission and wireless protocols. That is how your choices affect the device range and battery consumption.
 - [ ] What alternatives did you evaluate?
 - [ ] What are the design limitations of your choices?
@@ -154,6 +156,7 @@ I will vizulize my data on Grafana. Grafana is opensource data visualizition cre
  To do so I will send data from my MQTT broker to NodeRed--> InfluxDb --> Grafana
 Influx open source database
 Hence you'll need to first download NodeRed, InfluxDb and Grafana
+
 #### Download InfluxDb
 How to download Influx to Windows.
 Go to https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows and download latest veresion
@@ -179,11 +182,13 @@ Then run node-red by typing in the command prompt
 ```
 node-red start 
 ```
+Go to http://localhost:1880/ (default) in your browser to start node-red.
 
 #### Download Grafana
+Download the Grafana installer from https://grafana.com/grafana/download?platform=windows and run it.
+Go to the Grafana port http://localhost:3000/ (default)
 
-
-#### Setup
+#### Setup everything together
 
 Create your database in influxdb. Go to Data-> Buckets and create a new bucke, mine is called nodered.
 ![image](https://user-images.githubusercontent.com/44947706/202447734-57032cb7-9555-45c3-8b52-59737c9295dd.png)
@@ -224,10 +229,7 @@ Go to dashboards and create a new one in Grafana. Add a panel, and in the query 
 
 
 Final Grafana display 
-![image](https://user-images.githubusercontent.com/44947706/202492976-29168314-f3f6-481c-8860-96df5c51f5e4.png)
-
-
-
+![image](https://user-images.githubusercontent.com/44947706/202495918-4a2a9799-f415-41f2-8f69-d19202ecfc83.png)
 
 
 
