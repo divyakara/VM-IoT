@@ -198,14 +198,24 @@ Continue to add your Organization name, bucketname and give your measurement a n
 ![image](https://user-images.githubusercontent.com/44947706/202449685-dc931f9b-2b57-4cb8-9c82-41b379be9206.png)
 
 Deploy your changes in nodered.
+![image](https://user-images.githubusercontent.com/44947706/202449911-bfb14dec-d638-4b8b-9567-54182c314be6.png)
+
+In influx make sure you receive the data in your database. Go to explore, select your bucket, select measurements to display and value. Submit and you should see data visulized. 
+![image](https://user-images.githubusercontent.com/44947706/202484636-694f5b03-1afc-42d4-afb9-f80797f54359.png)
+
+Next step is to display this data in Grafana. Go to grafana localhost:3000. configurations and add a datasource. 
+Name the datasource, choose Query Language Flux, 
+enter link to influx in url under HTTP. Under InfluxDB Details enter Organization, Token from Influx and bucketname. Save & test.
+
+![image](https://user-images.githubusercontent.com/44947706/202486724-6baed792-dc9b-4ba8-ae11-495fbf22c00f.png)
+
+Go to dashboards and create a new one in Grafana. Add a panel, and in the query you can paste code from Influx in order to input the right data to vizulize. Simply select the data you want to vizulize in Influxdb, go to Script Editor, copy that codesnippet and paste into Grafana query.
+![image](https://user-images.githubusercontent.com/44947706/202489842-b8f8c291-1749-4620-b926-18aaf07496b3.png)
 
 
 
-
-
-
-
-
+Final Grafana display 
+![image](https://user-images.githubusercontent.com/44947706/202490089-88e8b039-d1e2-4e13-ac2f-d74e65e664fb.png)
 
 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
