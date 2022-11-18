@@ -80,21 +80,28 @@ Example:
 >| ---------                | ----------------          | ------ |
 >| ESP32 devkitc v4         |  [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)    | 125     |
 >| Ultrasonic Sensor HC-SR04 | [Elfa](https://www.elfa.se/en/hc-sr04-ultrasonic-distance-sensor-5v-adafruit-3942/p/30139186?ext_cid=shgooaqsesv-Shopping-PerformanceMax-CSS&&cq_src=google_ads&cq_cmp=18208288444&cq_con=&cq_term=&cq_med=pla&cq_plac=&cq_net=x&cq_pos=&cq_plt=gp&gclsrc=aw.ds&gclid=Cj0KCQiA99ybBhD9ARIsALvZavXpKyaKploFa4YCGR7lEYw9_48EFfpWBXGeCyqkvJlPmJfkQlxNtf4aAglyEALw_wcB&gclsrc=aw.ds)  | 50      |
->| Digital temperature and humidity sensor DHT11 | [ElectroKit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50    |
->| Jumper wires Male-Male |   [electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50   |
->| Jumper wires Male-Female |    [ElectroKit] (https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50   |
->| Bread board |    [ElectroKit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60   |
->| USB-cable A-male micro B male 15cm |    [Elektrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
+>| Digital temperature and humidity sensor DHT11 | [Electrokit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50    |
+>| Jumper wires Male-Male |   [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50   |
+>| Jumper wires Male-Female |    [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50   |
+>| Bread board |    [Electrokit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60   |
+>| USB-cable A-male micro B male 15cm |    [Electrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
 >| Powerbank |          |     |
 >| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40  |
 >| Summa |          |  440 kr   |
+>
+Pictures of the main components
 
+![image](https://user-images.githubusercontent.com/44947706/202709160-c246adc9-8e1e-4779-ad5d-285a698b9827.png)
+>Fig. 1. ESP32 Microcontroller with Wifi
 
+![image](https://user-images.githubusercontent.com/44947706/202709279-e22d8ad0-b8fb-40d2-aced-34e718114988.png)
+>Fig. 1. Digital temperature and humidity sensor DHT11 (0\*C - 50\*C)
+
+![image](https://user-images.githubusercontent.com/44947706/202708805-e113e7b7-af84-475d-b14b-845855a76a41.png)
+>Fig. 1. Ultrasonic Sensor HC-SR04 (measuring range: 20 mm - 4 m and 15° measuring angle)
 
 >In this project I have chosen to work with the Pycom LoPy4 device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
->
->![LoPy!](https://pycom.io/wp-content/uploads/2018/08/lopySide-1.png)
->Fig. 1. LoPy4 with headers. Pycom.io
+
 
 
 ### Environment setup
