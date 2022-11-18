@@ -70,38 +70,38 @@ Describe why you have chosen to build this specific device. What purpose does it
 ### Material
 
 Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
+- [ x] List of material
+- [x ] What the different things (sensors, wires, controllers) do - short specifications
+- [x ] Where you bought them and how much they cost
+>In this project I have chosen to work with the Pycom device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
 
-- [ ] List of material
-- [ ] What the different things (sensors, wires, controllers) do - short specifications
-- [ ] Where you bought them and how much they cost
 
-Example:
->| IoT Thing                | From                      | Price (SEK)|
->| ---------                | ----------------          | ------ |
->| ESP32 devkitc v4         |  [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)    | 125     |
->| Ultrasonic Sensor HC-SR04 | [Elfa](https://www.elfa.se/en/hc-sr04-ultrasonic-distance-sensor-5v-adafruit-3942/p/30139186?ext_cid=shgooaqsesv-Shopping-PerformanceMax-CSS&&cq_src=google_ads&cq_cmp=18208288444&cq_con=&cq_term=&cq_med=pla&cq_plac=&cq_net=x&cq_pos=&cq_plt=gp&gclsrc=aw.ds&gclid=Cj0KCQiA99ybBhD9ARIsALvZavXpKyaKploFa4YCGR7lEYw9_48EFfpWBXGeCyqkvJlPmJfkQlxNtf4aAglyEALw_wcB&gclsrc=aw.ds)  | 50      |
->| Digital temperature and humidity sensor DHT11 | [Electrokit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50    |
->| Jumper wires Male-Male |   [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50   |
->| Jumper wires Male-Female |    [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50   |
->| Bread board |    [Electrokit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60   |
->| USB-cable A-male micro B male 15cm |    [Electrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
->| Powerbank |          |     |
->| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40  |
->| Summa |          |  440 kr   |
->
-Pictures of the main components
+I've decided to choose work with the ESP32 device in this project see Fig 1. It is small and has wifi built in which will be used in this project. To this I've added a small temperature and humidity sensor see Fig 2, together with a distance sensor see Fig 3.
 
-![image](https://user-images.githubusercontent.com/44947706/202709160-c246adc9-8e1e-4779-ad5d-285a698b9827.png {width=100})
+![image](https://user-images.githubusercontent.com/44947706/202709160-c246adc9-8e1e-4779-ad5d-285a698b9827.png)
 >Fig. 1. ESP32 Microcontroller with Wifi
 
-![image](https://user-images.githubusercontent.com/44947706/202709279-e22d8ad0-b8fb-40d2-aced-34e718114988.png | width=100)
->Fig. 1. Digital temperature and humidity sensor DHT11 (0\*C - 50\*C)
+![image](https://user-images.githubusercontent.com/44947706/202709279-e22d8ad0-b8fb-40d2-aced-34e718114988.png)
+>Fig. 2. Digital temperature and humidity sensor DHT11 (0\*C - 50\*C)
 
-![image](https://user-images.githubusercontent.com/44947706/202708805-e113e7b7-af84-475d-b14b-845855a76a41.png | width=100)
->Fig. 1. Ultrasonic Sensor HC-SR04 (measuring range: 20 mm - 4 m and 15° measuring angle)
+![image](https://user-images.githubusercontent.com/44947706/202708805-e113e7b7-af84-475d-b14b-845855a76a41.png)
+>Fig. 3. Ultrasonic Sensor HC-SR04 (measuring range: 20 mm - 4 m and 15° measuring angle)
 
->In this project I have chosen to work with the Pycom LoPy4 device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
+A list of the material that was used in this project, where it can be found to buy and its price.
+| IoT Thing                | From                      | Price (SEK)|
+| ---------                | ----------------          | ------ |
+| ESP32 devkitc v4         |  [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)    | 125     |
+| Ultrasonic Sensor HC-SR04 | [Elfa](https://www.elfa.se/en/hc-sr04-ultrasonic-distance-sensor-5v-adafruit-3942/p/30139186?ext_cid=shgooaqsesv-Shopping-PerformanceMax-CSS&&cq_src=google_ads&cq_cmp=18208288444&cq_con=&cq_term=&cq_med=pla&cq_plac=&cq_net=x&cq_pos=&cq_plt=gp&gclsrc=aw.ds&gclid=Cj0KCQiA99ybBhD9ARIsALvZavXpKyaKploFa4YCGR7lEYw9_48EFfpWBXGeCyqkvJlPmJfkQlxNtf4aAglyEALw_wcB&gclsrc=aw.ds)  | 50      |
+| Digital temperature and humidity sensor DHT11 | [Electrokit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50    |
+| Jumper wires Male-Male |   [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50   |
+| Jumper wires Male-Female |    [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50   |
+| Bread board |    [Electrokit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60   |
+| USB-cable A-male micro B male 15cm |    [Electrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
+| Powerbank 10 000mA |  [Jula](https://www.jula.se/catalog/hem-och-hushall/hemelektronik/tillbehor-for-surfplattor-och-mobiler/batterier-och-powerbanks/powerbank-002630/)        |  200   |
+| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40  |
+| Sum |          |  640 kr   |
 
+In total it will cost around 640 SEK. This can of course differ depending on how many you buy and where you buy it from. 
 
 
 ### Environment setup
@@ -114,10 +114,11 @@ How is the device programmed. Which IDE are you using. Describe all steps from f
 - [ ] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
 
 I chose the IDE Thonny which was downloaded from their webpage https://thonny.org/.
+
 Flashing Firmware with micro python had to download  esptool.py
 steps here https://randomnerdtutorials.com/flashing-micropython-firmware-esptool-py-esp32-esp8266/
 
-#### Download InfluxDb
+#### InfluxDb
 How to download Influx to Windows.
 Go to https://docs.influxdata.com/influxdb/v2.0/install/?t=Windows and download latest veresion
 Install by running following commands in Powershell.
@@ -132,7 +133,7 @@ Start Influx
 > ./influxd
 ```
 
-#### Download Nodered
+#### Nodered
 In order to install Nodered you need to first download nodejs from their webpage: https://nodejs.org/en/
 Then open a command prompt and enter 
 ```
@@ -144,7 +145,7 @@ node-red start
 ```
 Go to http://localhost:1880/ (default) in your browser to start node-red.
 
-#### Download Grafana
+#### Grafana
 Download the Grafana installer from https://grafana.com/grafana/download?platform=windows and run it.
 Go to the Grafana port http://localhost:3000/ (default)
 
@@ -160,7 +161,7 @@ How is all the electronics connected? Describe all the wiring, good if you can s
 - [ ] Discussion about a way forward - is it possible to scale?
 
 ### Platforms and infrastructure
-
+ESP32
 
 Describe your choice of platform(s). You need to describe how the IoT-platform works, and also the reasoning and motivation about your choices. Have you developed your own platform, or used 
 
