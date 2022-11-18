@@ -70,9 +70,9 @@ Describe why you have chosen to build this specific device. What purpose does it
 ### Material
 
 Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
-- [ x] List of material
-- [x ] What the different things (sensors, wires, controllers) do - short specifications
-- [x ] Where you bought them and how much they cost
+- [x] List of material
+- [x] What the different things (sensors, wires, controllers) do - short specifications
+- [x] Where you bought them and how much they cost
 >In this project I have chosen to work with the Pycom device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
 
 
@@ -114,8 +114,31 @@ How is the device programmed. Which IDE are you using. Describe all steps from f
 
 I chose the IDE Thonny which was downloaded from their webpage https://thonny.org/.
 
-Flashing Firmware with micro python had to download  esptool.py
-steps here https://randomnerdtutorials.com/flashing-micropython-firmware-esptool-py-esp32-esp8266/
+Before flashing the firmware MicroPython on the ESP32, it is needed to install esptool.py and setuptools using Python. 
+Write following code into your command prompt to install the requirements.
+```
+pip install esptool
+pip install setuptools
+python -m esptool
+```
+Now we can begin to download and flash the MicroPython Firmware on ESP32.
+Connect your ESP32 to your copmputer using your usb cable, find and remember which COM port is used by opening the Device manager on Windows and see the COM port under "Ports". If Port is not detected you might only have a charging cable or you need to install USB drivers, in the ESP32 the CP2102 chip is used. Download the driver for CP2102 from the [Silicion Labs website](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
+
+#### MicroPython
+Download the latest version of MicroPython from [MicroPython webpage](https://micropython.org/download/#esp32).
+Open the command prompt where the downloaded bin is located. Hold the BOOT/FLASH button while running this code in the prompt: 
+```
+python -m esptool –-chip esp32 erase_flash
+```
+Release the button after ""Erasing..." begins.
+Now the erasing process is finished and we need to flash the MicroPython Firmware with esptools.py
+
+Now replace your COM port and bin file name to your name, hold the BOOT/FLASH button and run:
+```
+python -m esptool --chip esp32 --port COM3 write_flash -z 0x1000 esp32-20190113-v1.9.4-779-g5064df207.bin
+```
+Your ESP32  should now be flashed with Micropython firmware.
+
 
 #### InfluxDb
 How to download Influx to Windows.
