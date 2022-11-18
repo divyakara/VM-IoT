@@ -90,16 +90,15 @@ I've decided to choose work with the ESP32 device in this project see Fig 1. It 
 A list of the material that was used in this project, where it can be found to buy and its price.
 | IoT Thing                | From                      | Price (SEK)|
 | ---------                | ----------------          | ------ |
-| ESP32 devkitc v4         |  [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)    | 125     |
-| Ultrasonic Sensor HC-SR04 | [Elfa](https://www.elfa.se/en/hc-sr04-ultrasonic-distance-sensor-5v-adafruit-3942/p/30139186?ext_cid=shgooaqsesv-Shopping-PerformanceMax-CSS&&cq_src=google_ads&cq_cmp=18208288444&cq_con=&cq_term=&cq_med=pla&cq_plac=&cq_net=x&cq_pos=&cq_plt=gp&gclsrc=aw.ds&gclid=Cj0KCQiA99ybBhD9ARIsALvZavXpKyaKploFa4YCGR7lEYw9_48EFfpWBXGeCyqkvJlPmJfkQlxNtf4aAglyEALw_wcB&gclsrc=aw.ds)  | 50      |
-| Digital temperature and humidity sensor DHT11 | [Electrokit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50    |
-| Jumper wires Male-Male |   [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50   |
-| Jumper wires Male-Female |    [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50   |
-| Bread board |    [Electrokit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60   |
-| USB-cable A-male micro B male 15cm |    [Electrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
-| Powerbank 10 000mA |  [Jula](https://www.jula.se/catalog/hem-och-hushall/hemelektronik/tillbehor-for-surfplattor-och-mobiler/batterier-och-powerbanks/powerbank-002630/)        |  200   |
-| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40  |
-| Sum |          |  640 kr   |
+| ESP32 devkitc v4         |  [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)    | 125 kr    |
+| Ultrasonic Sensor HC-SR04 | [Elfa](https://www.elfa.se/en/hc-sr04-ultrasonic-distance-sensor-5v-adafruit-3942/p/30139186?ext_cid=shgooaqsesv-Shopping-PerformanceMax-CSS&&cq_src=google_ads&cq_cmp=18208288444&cq_con=&cq_term=&cq_med=pla&cq_plac=&cq_net=x&cq_pos=&cq_plt=gp&gclsrc=aw.ds&gclid=Cj0KCQiA99ybBhD9ARIsALvZavXpKyaKploFa4YCGR7lEYw9_48EFfpWBXGeCyqkvJlPmJfkQlxNtf4aAglyEALw_wcB&gclsrc=aw.ds)  | 50 kr     |
+| Digital temperature and humidity sensor DHT11 | [Electrokit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50 kr   |
+| Jumper wires Male-Male |   [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50 kr  |
+| Jumper wires Male-Female |    [Electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50 kr  |
+| Bread board |    [Electrokit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60 kr  |
+| USB-cable A-male micro B male 15cm |    [Electrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16 kr  |
+| Powerbank 10 000mA |  [Jula](https://www.jula.se/catalog/hem-och-hushall/hemelektronik/tillbehor-for-surfplattor-och-mobiler/batterier-och-powerbanks/powerbank-002630/)        |  200 kr   |
+| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40 kr |
 
 In total it will cost around 640 SEK. This can of course differ depending on how many you buy and where you buy it from. 
 
