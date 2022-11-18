@@ -59,12 +59,13 @@ What needs to be included:
 - [ ] How much time it might take to do (an approximation)
 
 ### Objectives
+In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19 degrees celcius and 26 degrees during a working day. My objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happen. I've added a distance sensor to this as well too in order to monitor if someone enters the room and specifically sits at the desk close to sensor. Number of people is a small factor that could affect the temperature, in this project I'll track one person. After using this setup I believe I can get an idea or even an answer to why this happen and inform the building janitor in order to fix this problem.  
 
 Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
 
-- [ ] Why you chose the project
-- [ ] What purpose does it serve
-- [ ] What insights you think it will give
+- [x] Why you chose the project
+- [x] What purpose does it serve
+- [x] What insights you think it will give
 
 ### Material
 
