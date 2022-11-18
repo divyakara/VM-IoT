@@ -91,13 +91,13 @@ Example:
 >
 Pictures of the main components
 
-![image](https://user-images.githubusercontent.com/44947706/202709160-c246adc9-8e1e-4779-ad5d-285a698b9827.png)
+![image](https://user-images.githubusercontent.com/44947706/202709160-c246adc9-8e1e-4779-ad5d-285a698b9827.png {width=100})
 >Fig. 1. ESP32 Microcontroller with Wifi
 
-![image](https://user-images.githubusercontent.com/44947706/202709279-e22d8ad0-b8fb-40d2-aced-34e718114988.png)
+![image](https://user-images.githubusercontent.com/44947706/202709279-e22d8ad0-b8fb-40d2-aced-34e718114988.png | width=100)
 >Fig. 1. Digital temperature and humidity sensor DHT11 (0\*C - 50\*C)
 
-![image](https://user-images.githubusercontent.com/44947706/202708805-e113e7b7-af84-475d-b14b-845855a76a41.png)
+![image](https://user-images.githubusercontent.com/44947706/202708805-e113e7b7-af84-475d-b14b-845855a76a41.png | width=100)
 >Fig. 1. Ultrasonic Sensor HC-SR04 (measuring range: 20 mm - 4 m and 15° measuring angle)
 
 >In this project I have chosen to work with the Pycom LoPy4 device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
