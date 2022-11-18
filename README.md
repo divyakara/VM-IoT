@@ -86,7 +86,7 @@ Example:
 >| USB-cable A-male micro B male 15cm |    [Elektrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
 >| Powerbank |          |     |
 >| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40  |
->| Summa |          |     |
+>| Summa |          |  440 kr   |
 
 
 
