@@ -75,18 +75,21 @@ Explain all material that is needed. All sensors, where you bought them and thei
 - [ ] Where you bought them and how much they cost
 
 Example:
->| IoT Thing | Price            | fdsfsd |
->| --------- | ---------------- | dsdfsd |
->| ESP32     |                  | fd     |
->| gf        | jolly good idea? | d      |
+>| IoT Thing                | From                      | Price (SEK)|
+>| ---------                | ----------------          | ------ |
+>| ESP32 devkitc v4         |  [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)    | 125     |
+>| Ultrasonic Sensor HC-SR04 | [Elfa](https://www.elfa.se/en/hc-sr04-ultrasonic-distance-sensor-5v-adafruit-3942/p/30139186?ext_cid=shgooaqsesv-Shopping-PerformanceMax-CSS&&cq_src=google_ads&cq_cmp=18208288444&cq_con=&cq_term=&cq_med=pla&cq_plac=&cq_net=x&cq_pos=&cq_plt=gp&gclsrc=aw.ds&gclid=Cj0KCQiA99ybBhD9ARIsALvZavXpKyaKploFa4YCGR7lEYw9_48EFfpWBXGeCyqkvJlPmJfkQlxNtf4aAglyEALw_wcB&gclsrc=aw.ds)  | 50      |
+>| Digital temperature and humidity sensor DHT11 | [ElectroKit](https://www.electrokit.com/en/product/digital-temperature-and-humidity-sensor-dht11/)         | 50    |
+>| Jumper wires Male-Male |   [electrokit](https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-male-male/)       |  50   |
+>| Jumper wires Male-Female |    [ElectroKit] (https://www.electrokit.com/en/product/jumper-wires-40-pin-30cm-female-female-2/)       |  50   |
+>| Bread board |    [ElectroKit](https://www.electrokit.com/en/product/solderless-breadboard-400-tie-points/)      |  60   |
+>| USB-cable A-male micro B male 15cm |    [Elektrokit](https://www.electrokit.com/en/product/usb-kabel-a-hane-micro-b-hane-15cm/)     |  16   |
+>| Powerbank |          |     |
+>| Led Display (not necessary) | [Amazon](https://www.amazon.se/ZHITING-seriell-LED-displaymodul-hallon-Arduino/dp/B08GM1XW31/ref=sr_1_41?crid=WQT82A1ZSX6F&keywords=lcd+oled+display&qid=1668767941&sprefix=lcd+oled+display%2Caps%2C72&sr=8-41)          |   40  |
+>| Summa |          |     |
 
 
-> Example:
->| IoT Thing | From  | Price        |
->| --------- | ---------------- |
->| ESP32 devkit v4   | [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)          |
->|Distance Sensor HR      | jolly good idea? |  |
->
+
 >In this project I have chosen to work with the Pycom LoPy4 device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
 >
 >![LoPy!](https://pycom.io/wp-content/uploads/2018/08/lopySide-1.png)
@@ -240,7 +243,7 @@ Go to dashboards and create a new one in Grafana. Add a panel, and in the query 
 
 
 Final Grafana display 
-![image](https://user-images.githubusercontent.com/44947706/202495918-4a2a9799-f415-41f2-8f69-d19202ecfc83.png)
+![image](https://user-images.githubusercontent.com/44947706/202679499-663850ba-e8db-4fb1-9cde-bf54250b4f6c.png)
 
 
 
