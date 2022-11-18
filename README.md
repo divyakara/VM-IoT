@@ -1,7 +1,6 @@
 # VM-IoT Title?
 
 Divya Kara 
-student credentials (xx666xxx)
 
 ## Project report - IoT report template 
 
@@ -75,12 +74,18 @@ Explain all material that is needed. All sensors, where you bought them and thei
 - [ ] What the different things (sensors, wires, controllers) do - short specifications
 - [ ] Where you bought them and how much they cost
 
+Example:
+>| IoT Thing | Price            | fdsfsd |
+>| --------- | ---------------- | dsdfsd |
+>| ESP32     |                  | fd     |
+>| gf        | jolly good idea? | d      |
+
 
 > Example:
->| IoT Thing | For this         |
+>| IoT Thing | From  | Price        |
 >| --------- | ---------------- |
->| Perhaps   | a table          |
->| is a      | jolly good idea? |
+>| ESP32 devkit v4   | [Amazon](https://www.amazon.se/AZDelivery-ESP32-NodeMCU-Development-Efterf%C3%B6ljarmodul/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=shpngadsglede-21&linkCode=df0&hvadid=476551177109&hvpos=&hvnetw=g&hvrand=11855222708416699519&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062355&hvtargid=pla-898234157885&psc=1)          |
+>|Distance Sensor HR      | jolly good idea? |  |
 >
 >In this project I have chosen to work with the Pycom LoPy4 device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
 >
