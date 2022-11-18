@@ -228,12 +228,9 @@ How is the data transmitted to the internet or local server? Describe the packag
 
 ### Visualisation and user interface
 I will vizulize my data on Grafana. Grafana is opensource data visualizition create dashboard and so on.
- To do so I will send data from my MQTT broker to NodeRed--> InfluxDb --> Grafana
-Influx open source database
-Hence you'll need to first download NodeRed, InfluxDb and Grafana
+To do so I will send data from my MQTT broker to NodeRed--> InfluxDb --> Grafana
+Influx is an open source database where I 'll save my data. Install NodeRed, InfluxDb and Grafana as explained in the setup chapter.
 
-
-#### Setup everything together
 
 Create your database in influxdb. Go to Data-> Buckets and create a new bucke, mine is called nodered.
 ![image](https://user-images.githubusercontent.com/44947706/202447734-57032cb7-9555-45c3-8b52-59737c9295dd.png)
@@ -280,11 +277,11 @@ Final Grafana display
 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
 
-- [ ] Provide visual examples on how the visualisation/UI looks. Pictures are needed.
+- [x] Provide visual examples on how the visualisation/UI looks. Pictures are needed.
 - [ ] How often is data saved in the database. What are the design choices?
 - [ ] Explain your choice of database. What kind of database. Motivate.
-- [ ] Automation/triggers of the data.
-- [ ] Alerting services. Are any used, what are the options and how are they in that case included.
+- [ ] Automation/triggers of the data. Future
+- [ ] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
 
 ### Finalizing the design
 
