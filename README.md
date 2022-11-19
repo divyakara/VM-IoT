@@ -175,22 +175,70 @@ Is your platform based on a local installation or a cloud? Do you plan to use a 
 Import core functions of your code here, and don't forget to explain what you have done. Do not put too much code here, focus on the core functionalities. Have you done a specific function that does a calculation, or are you using clever function for sending data on two networks? Or, are you checking if the value is reasonable etc. Explain what you have done, including the setup of the network, wireless, libraries and all that is needed to understand.
 
 
+When the ESP32 is started up it will boot up and connect to the Wifi in the office. Then it will continue to the main.py file where it starts to import all necessary libraries. It will to begin to connect to our broker and define the topics that will be sent.
+
 ```python=
-import this as that
+#Broker
+CLIENT_NAME = 'Office'
+BROKER_ADDR = '172.16.2.7'
+mqttc = MQTTClient(CLIENT_NAME, BROKER_ADDR, keepalive=60)
+mqttc.connect()
 
-def my_cool_function():
-    print('not much here')
-
-s.send(package)
-
-# Explain your code!
+#Topics
+BTN_TOPIC_TEMP = CLIENT_NAME.encode() + b'/LMP/temp'
+BTN_TOPIC_HUM = CLIENT_NAME.encode() + b'/LMP/humidity'
+BTN_TOPIC_DIST = CLIENT_NAME.encode() + b'/LMP/distance'
 ```
+
+Pins numbers are also defined according to the circuit diagram. 
+
+The main loop I have that will run every second is as follows:
+
+```python
+graph = ""
+timerCount = 0
+while True:
+  try:
+    sleep(1)
+    timerCount = timerCount + 1
+    #read temp sensor
+    temp, hum = read_tempsensor()
+
+    #Read distance
+    oled.fill(0)
+    distance = sensorDist.distance_mm()
+    print('Distance:', distance, 'mm')
+    print('--------------------------')
+    
+    #Show text on display
+    oled.text("Distance: " + str(distance) + " mm", 0, 15)
+    oled.text("Temp: " + str(temp) + "'C", 0, 35)
+    oled.text("Humidity: " + str(hum) + " %", 0, 55)
+    oled.show()
+
+    #Only send temp data every minute
+    if timerCount == 60:
+        #publish to Mqtt
+        mqttc.publish( BTN_TOPIC_TEMP, str(temp).encode() )
+        mqttc.publish( BTN_TOPIC_HUM, str(hum).encode() )
+        #reset timer
+        timerCount = 0
+        
+    mqttc.publish( BTN_TOPIC_DIST, str(distance).encode() )
+    
+    
+  except OSError as e:
+    print('Failed to read sensor.')
+```
+
+As can be seen I send the distance data every second, to be able to capture if someone passes the distance sensor quite fast. The temperature however won't change so fast so I don't want to send that data as often. Therefore I've added a counter which makes it possible to send the temperature data every x seconds instead.
+I started to send the temp data with a lot time in between almost every 15 minutes. But then I noticed I didn't catch the temp deviations if someone opens the window for example. Hence, I lowered it to every minute instead.
 
 ### The physical network layer
 
 How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
 
-- [ ] How often is the data sent?   Every minute
+- [x] How often is the data sent?   Every minute
 - [ ] Which wireless protocols did you use (WiFi, LoRa, etc ...)?       Wifi
 - [ ] Which transport protocols were used (MQTT, webhook, etc ...)      MQTT
 - [ ] Elaborate on the design choices regarding data transmission and wireless protocols. That is how your choices affect the device range and battery consumption.
