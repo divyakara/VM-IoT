@@ -2,7 +2,7 @@
 
 Divya Kara 
 
-## Project report - IoT report template 
+## Streaming sensor data to Grafana dashboard using MQTT, Node-RED and InfluxDB 
 
 ###### tags: `IoT` `MQTT` `MicroPython` `ESP32` 
 ---
@@ -11,58 +11,24 @@ Divya Kara
 
 [TOC]
 
-## How to write your report
+### Project Overview
+This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red, InfluxDB.
+It will take approximatially 5h to set up and the data flow will looks like this:
+![image](https://user-images.githubusercontent.com/44947706/202853721-564641e8-5c19-4cc4-b8ad-011101db7d63.png)
+>Fig. 1. Data flow from sensors to vizualization dashboard.
 
-We have chosen to streamline your assignment as a tutorial, written in the Markdown language using a standard template (below). The main reason behind this is to make it as simple as possible, still flexible and easy to share between all classmates and other peers.
-
-The report should be available on a public Github repository.
-
-```
-Information want's to be free - let's keep everything open, shall we?
-```
-
-## Github
-https://github.com/divyakara/VM-IoT/edit/main/README.md
-
-
-
-## Some examples for inspiration
-
-**Note these are from the basic courses.**
-
-Check out this link: [Good examples from previous summer courses](https://hackmd.io/@lnu-iot/good-examples)
-
-----
-
-Some additional examples for inspiration.
-
-- [GPS Car tracker with notification](https://www.instructables.com/id/GPS-Car-Tracker-With-SMS-Notification-and-Thingspe/)
-- [Blynk style button](https://www.instructables.com/id/Arduino-Tutorial-BLYNK-Style-Button-and-ESP-01-Rel/)
-- [IoT weather station](https://www.hackster.io/rijk_meurs/iot-weather-station-4c29c6)
-- [Mini IoT weather station](https://www.hackster.io/FunguyPro/how-to-make-an-mini-iot-weather-station-58252d)
-- [Distance sensor](https://community.mydevices.com/t/nodemcu-esp8266-hc-sr04/2872)
-
----
-
-# Template
-
-**Please keep the total length of the report below 40k characters.** You can include code that is linked to a repository. Keep the code snippets in the report short, and rather link to relevant sections in the repository. The code snippets should only be relevant for explaining on a higher level.
-
-## Tutorial on how to build a temperature and humidity sensor
 
 Give a short and brief overview of what your project is about.
 What needs to be included:
-
-- [ ] Title
-- [ ] Your name and student credentials (xx666xxx)
-- [ ] Short project overview
-- [ ] How much time it might take to do (an approximation)
+- [x] Title
+- [x] Your name and student credentials (xx666xxx)
+- [x] Short project overview
+- [x] How much time it might take to do (an approximation)
 
 ### Objectives
 In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19 degrees celcius and 26 degrees during a working day. My objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happen. I've added a distance sensor to this as well too in order to monitor if someone enters the room and specifically sits at the desk close to sensor. Number of people is a small factor that could affect the temperature, in this project I'll track one person. After using this setup I believe I can get an idea or even an answer to why this happen and inform the building janitor in order to fix this problem.  
 
 Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
-
 - [x] Why you chose the project
 - [x] What purpose does it serve
 - [x] What insights you think it will give
