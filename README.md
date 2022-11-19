@@ -325,10 +325,11 @@ Describe the presentation part. How is the dashboard built? How long is the data
 - [x] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
 
 ### Finalizing the design
-Final result of the project.
+Final result of the project:
+
 ![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
 
-It would have been really nice if the alerting was working as well to this project.
+This has been a rally fun project to do and I've learnt a lot from this. I wish I was able to put more time into this project than I was able to. I wanted to connect more sensors and make it more fun. It was bit dissapointing that the alerting was not working in the end, that would have made the end result much better. The Casing could've been much better. 
 
 
 Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in an other way, or even better? Pictures are nice!
