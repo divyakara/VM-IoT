@@ -6,7 +6,21 @@ Divya Kara
 **Table of Contents**
 
 
-[TOC]
+- [Project Overview](#project-overview)
+- [Objectives](#objectives)
+- [Material](#material)
+- [Environment setup](#environment-setup)
+  * [MicroPython](#micropython)
+  * [InfluxDb](#influxdb)
+  * [Node-RED](#node-red)
+  * [Grafana](#grafana)
+- [Putting everything together](#putting-everything-together)
+- [Platforms and infrastructure](#platforms-and-infrastructure)
+- [The code](#the-code)
+- [The physical network layer](#the-physical-network-layer)
+- [Visualization and user interface](#visualization-and-user-interface)
+- [Finalizing the design](#finalizing-the-design)
+
 
 ### Project Overview
 This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-RED and InfluxDb. 
