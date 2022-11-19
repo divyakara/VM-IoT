@@ -24,38 +24,13 @@ Divya Kara
 
 ### Project Overview
 This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-RED and InfluxDb. 
-
 Following this guide, I expect it to take approximately 8-10h to have everything running, including some unexpected time to troubleshoot.
 
-``` 
-Give a short and brief overview of what your project is about.
-What needs to be included:
-- [x] Title
-- [x] Your name and student credentials (xx666xxx)
-- [x] Short project overview
-- [x] How much time it might take to do (an approximation)
-```
 
 ### Objectives
 In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19°C and 26°C during a working day. The objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happens. I've added a distance sensor to this as well too in order to monitor if someone sits at their desk where the distance sensor is pointing towards. In the bigger picture, number of people will be a factor to be taken into account since it can affect the temperature. In this project I'll limit to only track if person sits or does not sit at their desk. After using this setup, I believe I can get an idea to when and why the temperature deviations occurs.
 
-```
-Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
-- [x] Why you chose the project
-- [x] What purpose does it serve
-- [x] What insights you think it will give
-```
-
 ### Material
-
-
-```
-Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
-- [x] List of material
-- [x] What the different things (sensors, wires, controllers) do - short specifications
-- [x] Where you bought them and how much they cost
-
-```
 
 I've decided to choose work with the ESP32 device in this project see Fig 1. It is small and has Wi-Fi built in which will be used in this project. To this I've added a small temperature and humidity sensor see Fig 2, together with a distance sensor see Fig 3.
 
@@ -85,17 +60,6 @@ In total it will cost around 640 SEK. This can of course differ depending on how
 
 
 ### Environment setup
-
-
-```
-How is the device programmed. Which IDE are you using. Describe all steps from flashing the firmware, installing plugins in your favorite editor. How flashing is done on MicroPython. The aim is that someone should be able to understand how to reproduce your project.
-
-- [x] Chosen IDE         Thonny 
-- [x] How the code is uploaded  ?? 
-- [x] How is your project structured (important) ??? 
-- [x] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
-
-```
 
 I chose to write my code using the Thonny IDE, which is a beginner friendly python editor. I downloaded it from their webpage https://thonny.org/. My main file and the libraries I've used is uploaded on my [Github](https://github.com/divyakara/VM-IoT). I've one library for each sensor I have (temperature/humidity, distance and a OLED screen for debugging). I have one boot file which will boot up and connect the ESP32 to wifi then a main file which holds everything together.
 
@@ -204,9 +168,7 @@ From the MQTT to the database Influx I use Node-RED which will act as a data bri
 
 
 ### The code
-```
-Import core functions of your code here, and don't forget to explain what you have done. Do not put too much code here, focus on the core functionalities. Have you done a specific function that does a calculation, or are you using clever function for sending data on two networks? Or, are you checking if the value is reasonable etc. Explain what you have done, including the setup of the network, wireless, libraries and all that is needed to understand.
-```
+
 
 When the ESP32 is started up it will boot up and connect to the Wifi in the office using this function:
 ```
@@ -323,19 +285,6 @@ The data flow will look like this:
 
 
 ### Visualization and user interface
-``` 
-Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
-
-- [x] Provide visual examples on how the visualization/UI looks. Pictures are needed.
-- [x] How often is data saved in the database. What are the design choices?
-- [x] Explain your choice of database. What kind of database. Motivate.
-- [x] Automation/triggers of the data. Future
-- [x] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
-
-``` 
-
-
-
 
 In summary I'll subscribe data from my MQTT broker to Node-RED --> InfluxDb --> Grafana. Below follow steps on how to set it all up.
 
@@ -393,17 +342,7 @@ It would have also been nice to add a trigger when the values deviate, such as t
 
 ### Finalizing the design
 
-``` 
-Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in another way, or even better? Pictures are nice!
-
-- [x] Show final results of the project
-- [x] Pictures
-- [ ] *Video presentation
-
-``` 
-
-
-Final result of the project:
+The final result of the project:
 
 ![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
 
