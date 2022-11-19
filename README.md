@@ -170,7 +170,7 @@ From the MQTT to the database Influx I use Node-RED which will act as a data bri
 ### The code
 
 
-When the ESP32 is started up it will boot up and connect to the Wifi in the office using this function:
+When the ESP32 is started up it will boot up and connect to the Wi-Fi in the office using this function:
 ```python
 def connect_wifi(ssid, password):    
   
