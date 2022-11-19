@@ -77,14 +77,14 @@ Connect your ESP32 to your computer using your usb cable, find and remember whic
 Download the latest version of MicroPython from [MicroPython webpage](https://micropython.org/download/#esp32).
 Open the command prompt where the downloaded bin is located. Hold the BOOT/FLASH button while running this code in the prompt: 
 ```
-python -m esptool –-chip esp32 erase_flash
+> python -m esptool –-chip esp32 erase_flash
 ```
 Release the button after ""Erasing..." begins.
 Now the erasing process is finished, and we need to flash the MicroPython Firmware with esptools.py
 
 Now replace your COM port and bin file name to your name, hold the BOOT/FLASH button and run:
 ```
-python -m esptool --chip esp32 --port COM3 write_flash -z 0x1000 esp32-20190113-v1.9.4-779-g5064df207.bin
+> python -m esptool --chip esp32 --port COM3 write_flash -z 0x1000 esp32-20190113-v1.9.4-779-g5064df207.bin
 ```
 Your ESP32  should now be flashed with MicroPython firmware.
 
@@ -108,11 +108,11 @@ Start Influx
 In order to install Node-RED you need to first download nodejs from their webpage: https://nodejs.org/en/
 Then open a command prompt and enter 
 ```
->npm install -g --unsafe-perm node-red
+> npm install -g --unsafe-perm node-red
 ```
 Then run node-red by typing in the command prompt
 ```
->node-red start 
+> node-red start 
 ```
 Go to http://localhost:1880/ (default) in your browser to start node-red.
 
