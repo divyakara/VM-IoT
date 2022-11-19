@@ -1,8 +1,5 @@
-# VM-IoT Title?
-
+# Streaming sensor data to Grafana dashboard using MQTT, Node-RED and InfluxDB 
 Divya Kara 
-
-## Streaming sensor data to Grafana dashboard using MQTT, Node-RED and InfluxDB 
 
 ###### tags: `IoT` `MQTT` `MicroPython` `ESP32` 
 ---
@@ -12,11 +9,11 @@ Divya Kara
 [TOC]
 
 ### Project Overview
-This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red, InfluxDB.
-It will take approximatially 5h to set up and the data flow will looks like this:
+This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red, InfluxDB. The data flow will look like this:
 ![image](https://user-images.githubusercontent.com/44947706/202853721-564641e8-5c19-4cc4-b8ad-011101db7d63.png)
 >Fig. 1. Data flow from sensors to vizualization dashboard.
 
+Following this guide and including some un expected problems that might accur I expect it to take approximatially 8-10h to set this up and run.
 
 Give a short and brief overview of what your project is about.
 What needs to be included:
@@ -73,12 +70,13 @@ In total it will cost around 640 SEK. This can of course differ depending on how
 
 How is the device programmed. Which IDE are you using. Describe all steps from flashing the firmware, installing plugins in your favorite editor. How flashing is done on MicroPython. The aim is that someone should be able to understand how to reproduce your project.
 
-- [ ] Chosen IDE         Thonny 
-- [ ] How the code is uploaded  ?? 
-- [ ] How is your project structured (important) ??? 
-- [ ] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
+- [x] Chosen IDE         Thonny 
+- [x] How the code is uploaded  ?? 
+- [x] How is your project structured (important) ??? 
+- [x] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
 
-I chose the IDE Thonny which was downloaded from their webpage https://thonny.org/.
+
+I chose to write my code using the Thonny IDE, which is a beginner friendly python editor. I downloaded it from their webpage https://thonny.org/. My main file and the libraries I've used is uploaded on my [Github](https://github.com/divyakara/VM-IoT). I've one library for each sensor I have (temperature/humidity, distance and a OLED screen for debugging). I have one boot file which will boot up and connect the ESP32 to wifi then a main file which holds everything together.
 
 Before flashing the firmware MicroPython on the ESP32, it is needed to install esptool.py and setuptools using Python. 
 Write following code into your command prompt to install the requirements.
@@ -141,10 +139,23 @@ Go to the Grafana port http://localhost:3000/ (default)
 ### Putting everything together
 
 How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
+
+The ultrasonic sensor, temperature sensor is connected as follows:
 ![circuit (1)](https://user-images.githubusercontent.com/44947706/202500320-57a9241d-7576-4ee7-90d5-d1e47466bbea.png)
 
-- [ ] Circuit diagram (can be hand drawn)
-- [ ] Electrical calculations
+The ESP32 was suppose to be connected to a powerbank which according to the manufacturer had a battery capacity of 10 000mAh. Doing some reaserch on the internet it seems like when the wifi is used on the ESP32 it is active mode and draws around 240mA. The batterylife for this setup can then be calculated as
+
+> Battery life (h) = battery capacity (mAh) / current in (mA) 
+
+which gives approximately 
+
+> 10 000 / 240 = 41 hours 
+
+Making this calculation made me rethink. I thought it might be a bit to much to charge the powerbank almost every other day and since the setup has some other alternative around its setup, I decided to not use the powerbank. I will instead connect the ESP32 to a stationary computer we have in the room.
+
+
+- [x] Circuit diagram (can be hand drawn)
+- [x] Electrical calculations
 - [ ] Limitations of hardware depending on design choices.
 - [ ] Discussion about a way forward - is it possible to scale?
 
