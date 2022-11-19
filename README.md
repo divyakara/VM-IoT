@@ -9,7 +9,7 @@ Divya Kara
 [TOC]
 
 ### Project Overview
-This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red and InfluxDb. 
+This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-RED and InfluxDb. 
 
 Following this guide, I expect it to take approximately 8-10h to have everything running, including some unexpected time to troubleshoot.
 
@@ -127,8 +127,8 @@ Start Influx
 > ./influxd
 ```
 
-#### Nodered
-In order to install Nodered you need to first download nodejs from their webpage: https://nodejs.org/en/
+#### Node-RED
+In order to install Node-RED you need to first download nodejs from their webpage: https://nodejs.org/en/
 Then open a command prompt and enter 
 ```
 >npm install -g --unsafe-perm node-red
@@ -185,7 +185,7 @@ The end visualization of the data will be shown in Grafana. It is an opensource 
 
 I needed a database to save all my data into and checked into MySQL and InfluxDb. The choice fell on the database InfluxDb, which is easy to set up and handles large volumes of time series data better which I thought was preferable in this case. The data in InfluxDb will be saved there for 30 days and then be deleted, which is more than enough for this case. 
 
-From the MQTT to the database Influx I use Node Red which will act as a data bridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a little familiar with node-red already I chose that instead. All the chosen tools are open source and free and which was also a reason to choose them.
+From the MQTT to the database Influx I use Node-RED which will act as a data bridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a little familiar with Node-RED already I chose that instead. All the chosen tools are open source and free and which was also a reason to choose them.
 
 
 
@@ -322,22 +322,22 @@ Describe the presentation part. How is the dashboard built? How long is the data
 
 
 
-In summary I'll subscribe data from my MQTT broker to Node Red--> InfluxDb --> Grafana. Below follow steps on how to set it all up.
+In summary I'll subscribe data from my MQTT broker to Node-RED --> InfluxDb --> Grafana. Below follow steps on how to set it all up.
 
 
 Create your database in InfluxDb. Go to Data-> Buckets and create a new bucket, mine is called nodered.
 ![image](https://user-images.githubusercontent.com/44947706/202447734-57032cb7-9555-45c3-8b52-59737c9295dd.png)
 
-Then continue to the tab Tokens in Influx and click on the token called "{your username}'s Token" and copy the Token from there which we soon will paste into Node Red.
+Then continue to the tab Tokens in Influx and click on the token called "{your username}'s Token" and copy the Token from there which we soon will paste into Node-RED.
 ![image](https://user-images.githubusercontent.com/44947706/202448171-0167b8cc-d63f-415c-a1a6-be37c75eb5ac.png)
 
 
-Start Node Red add a "MQTT in node", add your MQTT broker by entering server adress port,
+Start Node-RED add a "MQTT in node", add your MQTT broker by entering server address port,
 ![image](https://user-images.githubusercontent.com/44947706/202446286-97d6c9da-cee3-4d72-90ff-4b84264a4fe3.png)
 Then add the topic you want to subscribe to.
 ![image](https://user-images.githubusercontent.com/44947706/202446302-81ad4c73-6d21-4cd8-8fb0-fad6872a8eb2.png)
 
-You should now be able to collect data from the broker, add a debug node to confirm that. After you receive data you want to save the data in a database in influxDb. Go to manage palette and install "node-red-contrib-influxdb" in order to get the InfluxDb nodes.
+You should now be able to collect data from the broker, add a debug node to confirm that. After you receive data you want to save the data in a database in InfluxDb. Go to manage palette and install "node-red-contrib-influxdb" in order to get the InfluxDb nodes.
 
 Add a "influxdb out" node and configure it as follows. In the server field add a new server, give it a name, choose version 2, enter the url of the influx http://localhost:8086. Paste the token that was copied from InfluxDb.
 
@@ -346,7 +346,7 @@ Add a "influxdb out" node and configure it as follows. In the server field add a
 Continue to add your organization name, bucket name and give your measurement a name.
 ![image](https://user-images.githubusercontent.com/44947706/202449685-dc931f9b-2b57-4cb8-9c82-41b379be9206.png)
 
-Deploy your changes in Node Red.
+Deploy your changes in Node-RED.
 ![image](https://user-images.githubusercontent.com/44947706/202449911-bfb14dec-d638-4b8b-9567-54182c314be6.png)
 
 In influx make sure you receive the data in your database. Go to explore, select your bucket, select measurements to display and value. Submit and you should see data visualized. 
