@@ -9,33 +9,40 @@ Divya Kara
 [TOC]
 
 ### Project Overview
-This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red, InfluxDB. 
+This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red and InfluxDb. 
 
-Following this guide and including some un expected problems that might accur I expect it to take approximatially 8-10h to set this up and run.
+Following this guide I expect it to take approximatialy 8-10h to have everything running, including some unexpected time to troubleshoot.
 
+``` 
 Give a short and brief overview of what your project is about.
 What needs to be included:
 - [x] Title
 - [x] Your name and student credentials (xx666xxx)
 - [x] Short project overview
 - [x] How much time it might take to do (an approximation)
+```
 
 ### Objectives
 In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19 degrees celcius and 26 degrees during a working day. My objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happen. I've added a distance sensor to this as well too in order to monitor if someone enters the room and specifically sits at the desk close to sensor. Number of people is a small factor that could affect the temperature, in this project I'll track one person. After using this setup I believe I can get an idea or even an answer to why this happen and inform the building janitor in order to fix this problem.  
 
+```
 Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
 - [x] Why you chose the project
 - [x] What purpose does it serve
 - [x] What insights you think it will give
+```
 
 ### Material
 
+
+```
 Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
 - [x] List of material
 - [x] What the different things (sensors, wires, controllers) do - short specifications
 - [x] Where you bought them and how much they cost
 >In this project I have chosen to work with the Pycom device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
 
+```
 
 I've decided to choose work with the ESP32 device in this project see Fig 1. It is small and has wifi built in which will be used in this project. To this I've added a small temperature and humidity sensor see Fig 2, together with a distance sensor see Fig 3.
 
@@ -66,6 +73,8 @@ In total it will cost around 640 SEK. This can of course differ depending on how
 
 ### Environment setup
 
+
+```
 How is the device programmed. Which IDE are you using. Describe all steps from flashing the firmware, installing plugins in your favorite editor. How flashing is done on MicroPython. The aim is that someone should be able to understand how to reproduce your project.
 
 - [x] Chosen IDE         Thonny 
@@ -73,6 +82,7 @@ How is the device programmed. Which IDE are you using. Describe all steps from f
 - [x] How is your project structured (important) ??? 
 - [x] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
 
+```
 
 I chose to write my code using the Thonny IDE, which is a beginner friendly python editor. I downloaded it from their webpage https://thonny.org/. My main file and the libraries I've used is uploaded on my [Github](https://github.com/divyakara/VM-IoT). I've one library for each sensor I have (temperature/humidity, distance and a OLED screen for debugging). I have one boot file which will boot up and connect the ESP32 to wifi then a main file which holds everything together.
 
@@ -121,11 +131,11 @@ Start Influx
 In order to install Nodered you need to first download nodejs from their webpage: https://nodejs.org/en/
 Then open a command prompt and enter 
 ```
-npm install -g --unsafe-perm node-red
+>npm install -g --unsafe-perm node-red
 ```
 Then run node-red by typing in the command prompt
 ```
-node-red start 
+>node-red start 
 ```
 Go to http://localhost:1880/ (default) in your browser to start node-red.
 
@@ -143,11 +153,11 @@ The ultrasonic sensor, temperature sensor is connected as follows:
 
 The ESP32 was suppose to be connected to a powerbank which according to the manufacturer had a battery capacity of 10 000mAh. Doing some reaserch on the internet it seems like when the wifi is used on the ESP32 it is active mode and draws around 240mA. The batterylife for this setup can then be calculated as
 
-> Battery life (h) = battery capacity (mAh) / current in (mA) 
+$$ \text{Battery life (h)} = { \text{Battery capacity (mAh)} \over  \text{current (mA)} } $$
 
 which gives approximately 
 
-> 10 000 / 240 = 41 hours 
+$$ {10 000 \over 240 }= 41 \text{ hours} $$ 
 
 Making this calculation made me rethink. I thought it might be a bit to much to charge the powerbank almost every other day and since the setup has some other alternative around its setup, I decided to not use the powerbank. I will instead connect the ESP32 to a stationary computer we have in the room. If I would have gone with the battery I would have looked more into the deep sleep and see if I could have saved some energy there. I could have also transmit the data less often to draw less power.
 
@@ -243,6 +253,7 @@ The data flow will look like this:
 
 
 
+``` 
 How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
 
 - [x] How often is the data sent?   Every minute
@@ -252,6 +263,7 @@ How is the data transmitted to the internet or local server? Describe the packag
 - [ ] What alternatives did you evaluate?
 - [ ] What are the design limitations of your choices?
 
+``` 
 
 
 
@@ -316,6 +328,7 @@ The plan was to send an automatic alert notification when values exceeded the av
 It would have also been nice to add a trigger when the values deviate, such as turn a fan on when it gets too warm, or a heater when it gets too cold. This is something that can be developed in the future.
 
 
+``` 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
 
 - [x] Provide visual examples on how the visualisation/UI looks. Pictures are needed.
@@ -324,6 +337,7 @@ Describe the presentation part. How is the dashboard built? How long is the data
 - [x] Automation/triggers of the data. Future
 - [x] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
 
+``` 
 ### Finalizing the design
 Final result of the project:
 
@@ -332,11 +346,13 @@ Final result of the project:
 This has been a rally fun project to do and I've learnt a lot from this. I wish I was able to put more time into this project than I was able to. I wanted to connect more sensors and make it more fun. It was bit dissapointing that the alerting was not working in the end, that would have made the end result much better. The Casing could've been much better. 
 
 
+``` 
 Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in an other way, or even better? Pictures are nice!
 
 - [x] Show final results of the project
 - [x] Pictures
 - [ ] *Video presentation
 
+``` 
 ---
 
