@@ -393,8 +393,11 @@ Final result of the project:
 
 ![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
 
-This has been a fun project to do, and I've learnt a lot from this. I wish I was able to put more time into this project than I was able to. I wanted to connect more sensors and make it more fun. It was bit disappointing that the alerting was not working in the end, that would have made the result much better. The setup could have been given a better case that could have been 3D printed for a stable setup. 
+This has been a fun project to work with and I've learnt a lot from this. I wanted to do more than the time allowed me to do in this project but I'mm happy with the end result. In this project I was happy to try out Grafana and it really exceeded my expectations. It has a good looking interface on the dashbaords and it was really easy to set up with a lot of settings/options. It was only the alerting function that didn't really work for me in Grafana, It would have been needed some final touches in order to work, but even though I had that problem I'll most likely use it again in the future to visulize data. 
 
+The final setup could have been better. I should have 3D printed some kind of case to it to fasten the distance sensor in a more stable way and so that the wires were not so exposed.
+
+If I in the future would like to have something more portable in order to move it easily, I could look more into the deep sleep mode and see if I could do a different implementation to draw less power.
 
 
 ---
