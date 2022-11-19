@@ -9,9 +9,7 @@ Divya Kara
 [TOC]
 
 ### Project Overview
-This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red, InfluxDB. The data flow will look like this:
-![image](https://user-images.githubusercontent.com/44947706/202853721-564641e8-5c19-4cc4-b8ad-011101db7d63.png)
->Fig. 1. Data flow from sensors to vizualization dashboard.
+This project shows how to set up a temperature/humidity- and distance sensor and visualize the data on a Grafana dashboard using MQTT broker, Node-red, InfluxDB. 
 
 Following this guide and including some un expected problems that might accur I expect it to take approximatially 8-10h to set this up and run.
 
@@ -177,7 +175,7 @@ Import core functions of your code here, and don't forget to explain what you ha
 
 When the ESP32 is started up it will boot up and connect to the Wifi in the office. Then it will continue to the main.py file where it starts to import all necessary libraries. It will to begin to connect to our broker and define the topics that will be sent.
 
-```python=
+```python
 #Broker
 CLIENT_NAME = 'Office'
 BROKER_ADDR = '172.16.2.7'
@@ -236,11 +234,21 @@ I started to send the temp data with a lot time in between almost every 15 minut
 
 ### The physical network layer
 
+The data is transmitted to the office's local server using WiFi every second for the distance measurments and every minute the temperature measurments are sent. The reason for using WiFi is beacuse it is very easy accessible from a room in the office. With WiFi I'll only be able to use this setup in an area where wifi is connected, and in this case since i use it in office enviroment that is perfect for this case. I use MQTT (Message Queuing Telemetry Transport) which is often used to send the transport protocol to transmit data. To able to explore if data has actually has been sent to the broker, I used MQTT explorer which was very helpful when troubleshooting.
+![image](https://user-images.githubusercontent.com/44947706/202859355-e33d5a0e-7fde-48a5-8a01-119fd6b319e3.png)
+
+
+The data flow will look like this:
+![image](https://user-images.githubusercontent.com/44947706/202858909-a2e6aec2-31ff-4d2f-b8d3-75f2df89d22f.png)
+>Fig. x. Data flow from sensors to vizualization dashboard.
+
+
+
 How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
 
 - [x] How often is the data sent?   Every minute
-- [ ] Which wireless protocols did you use (WiFi, LoRa, etc ...)?       Wifi
-- [ ] Which transport protocols were used (MQTT, webhook, etc ...)      MQTT
+- [x] Which wireless protocols did you use (WiFi, LoRa, etc ...)?       Wifi
+- [x] Which transport protocols were used (MQTT, webhook, etc ...)      MQTT
 - [ ] Elaborate on the design choices regarding data transmission and wireless protocols. That is how your choices affect the device range and battery consumption.
 - [ ] What alternatives did you evaluate?
 - [ ] What are the design limitations of your choices?
@@ -252,9 +260,11 @@ How is the data transmitted to the internet or local server? Describe the packag
 
 
 ### Visualisation and user interface
-I will vizulize my data on Grafana. Grafana is opensource data visualizition create dashboard and so on.
-To do so I will send data from my MQTT broker to NodeRed--> InfluxDb --> Grafana
-Influx is an open source database where I 'll save my data. Install NodeRed, InfluxDb and Grafana as explained in the setup chapter.
+I will vizulize my data on Grafana. Grafana is opensource data visualizitiona and data analytics solution, where you can create dashboards and customize how the data will be shown. I've heard about this before and was curious to try it out. 
+I needed a database to save all my data into. The choice fell on the database InfluxDb, which is easy to set up and also allows to add the time to the measurement which I liked.
+From the MQTT to the database Influx I use NodeRed which will act as a databridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a bit familiar with nodered already i chose that instead. All of the chosen platform are free and open sources which was also a reason to chose it.
+
+In summary I'll subscribe data from my MQTT broker to NodeRed--> InfluxDb --> Grafana. Below follow steps on how to set it all up.
 
 
 Create your database in influxdb. Go to Data-> Buckets and create a new bucke, mine is called nodered.
@@ -299,21 +309,33 @@ Final Grafana display
 ![image](https://user-images.githubusercontent.com/44947706/202679499-663850ba-e8db-4fb1-9cde-bf54250b4f6c.png)
 
 
+The indata will be saved to influx every second as the data is subscribed. 
+
+The plan was to send an automatic alert notification when values exceeded the average. I started integrating to send an alert from Grafana to Discord, unfortunately I had trouble with that, and the time was not enough to make it work. That will be something to finish in the next step of this project. 
+![image](https://user-images.githubusercontent.com/44947706/202859483-3ba52cf3-7d0a-4249-81cc-15421c94bc92.png)
+
+It would have also been nice to add a trigger when the values deviate, such as turn a fan on when it gets too warm, or a heater when it gets too cold. This is something that can be developed in the future.
+
 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
 
 - [x] Provide visual examples on how the visualisation/UI looks. Pictures are needed.
-- [ ] How often is data saved in the database. What are the design choices?
-- [ ] Explain your choice of database. What kind of database. Motivate.
-- [ ] Automation/triggers of the data. Future
-- [ ] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
+- [x] How often is data saved in the database. What are the design choices?
+- [x] Explain your choice of database. What kind of database. Motivate.
+- [x] Automation/triggers of the data. Future
+- [x] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
 
 ### Finalizing the design
+Final result of the project.
+![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
+
+It would have been really nice if the alerting was working as well to this project.
+
 
 Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in an other way, or even better? Pictures are nice!
 
-- [ ] Show final results of the project
-- [ ] Pictures
+- [x] Show final results of the project
+- [x] Pictures
 - [ ] *Video presentation
 
 ---
