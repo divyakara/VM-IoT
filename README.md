@@ -139,14 +139,18 @@ $$ {10 000 \over 240 }= 41 \text{ hours} $$
 
 Making this calculation made me rethink. I thought it might be a bit too much to charge the power bank almost every other day and since the setup has some other alternative around its setup, I decided to not use the power bank. I will instead connect the ESP32 to a stationary computer we have in the room. If I would have gone with the battery I would have looked more into the deep sleep and see if I could have saved some energy there. I could have also transmitted the data less often to draw less power.
 
+
+ <!-- 
 ``` 
 - [x] Circuit diagram (can be hand drawn)
 - [x] Electrical calculations
 - [ ] Limitations of hardware depending on design choices.
 - [x] Discussion about a way forward - is it possible to scale?
 
-``` 
+```  -->
 ### Platforms and infrastructure
+
+ <!-- 
 ``` 
 Describe your choice of platform(s). You need to describe how the IoT-platform works, and also the reasoning and motivation about your choices. Have you developed your own platform, or used 
 
@@ -156,7 +160,7 @@ Is your platform based on a local installation or a cloud? Do you plan to use a 
 - [x] Explain and elaborate what made you choose this platform
 - [ ] Provide a pricing discussion. What are the prices for different platforms, and what are the pros and cons of using a low-code platform vs. developing yourself?
 
-``` 
+```  -->
 
 
 The end visualization of the data will be shown in Grafana. It is an opensource data visualization and data analytics solution, where you can create dashboards and customize how the data will be shown in different types of modules. I've heard about this platform before and was curious to try it out hence this choice.
@@ -258,6 +262,7 @@ I started to send the temp data with a lot of time in between almost every 15 mi
 
 ### The physical network layer
 
+ <!-- 
 ``` 
 How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
 
@@ -268,7 +273,7 @@ How is the data transmitted to the internet or local server? Describe the packag
 - [ ] What alternatives did you evaluate?
 - [ ] What are the design limitations of your choices?
 
-``` 
+```  -->
 
 
 The data is transmitted to the office's local server using Wi-Fi every second for the distance measurements and every minute the temperature measurements are sent. The reason for using Wi-Fi is because it is very easily accessible from a room in the office. With Wi-Fi I'll only be able to use this setup in an area where Wi-Fi is connected, and in this case since I use it in office environment that is perfect for this case. I use MQTT (Message Queuing Telemetry Transport) which is often used to send the transport protocol to transmit data. To able to explore if data has been sent to the broker, I used MQTT explorer which was very helpful when troubleshooting.
