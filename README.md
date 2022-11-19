@@ -39,13 +39,13 @@ Explain all material that is needed. All sensors, where you bought them and thei
 
 I've decided to choose work with the ESP32 device in this project see Fig 1. It is small and has wifi built in which will be used in this project. To this I've added a small temperature and humidity sensor see Fig 2, together with a distance sensor see Fig 3.
 
-![image](https://user-images.githubusercontent.com/44947706/202709160-c246adc9-8e1e-4779-ad5d-285a698b9827.png)
+![image](https://user-images.githubusercontent.com/44947706/202860688-213a5af8-7c18-4d28-80f9-af5b62b98129.png)
 >Fig. 1. ESP32 Microcontroller with Wifi
 
-![image](https://user-images.githubusercontent.com/44947706/202709279-e22d8ad0-b8fb-40d2-aced-34e718114988.png)
+![image](https://user-images.githubusercontent.com/44947706/202860707-0a8499ea-6664-4a50-acae-42cd58124e41.png)
 >Fig. 2. Digital temperature and humidity sensor DHT11 (0\*C - 50\*C)
 
-![image](https://user-images.githubusercontent.com/44947706/202708805-e113e7b7-af84-475d-b14b-845855a76a41.png)
+![image](https://user-images.githubusercontent.com/44947706/202860728-c3ccac67-ddfc-421f-8d99-2e3cc3d8aa6a.png)
 >Fig. 3. Ultrasonic Sensor HC-SR04 (measuring range: 20 mm - 4 m and 15° measuring angle)
 
 A list of the material that was used in this project, where it can be found to buy and its price.
