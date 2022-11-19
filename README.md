@@ -23,7 +23,7 @@ What needs to be included:
 ```
 
 ### Objectives
-In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19 degrees Celsius and 26 degrees during a working day. My objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happens. I've added a distance sensor to this as well too in order to monitor if someone enters the room and specifically sits at the desk close to sensor. Number of people is a small factor that could affect the temperature, in this project I'll track one person. After using this setup, I believe I can get an idea or even an answer to why this happen and inform the building janitor in order to fix this problem.  
+In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19°C and 26°C during a working day. The objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happens. I've added a distance sensor to this as well too in order to monitor if someone sits at their desk where the distance sensor is pointing towards. In the bigger picture, number of people will be a factor to be taken into account since it can affect the temperature. In this project I'll limit to only track if person sits or does not sit at their desk. After using this setup, I believe I can get an idea to when and why the temperature deviations occurs.
 
 ```
 Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
@@ -40,7 +40,6 @@ Explain all material that is needed. All sensors, where you bought them and thei
 - [x] List of material
 - [x] What the different things (sensors, wires, controllers) do - short specifications
 - [x] Where you bought them and how much they cost
->In this project I have chosen to work with the Pycom device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
 
 ```
 
@@ -150,6 +149,7 @@ How is all the electronics connected? Describe all the wiring, good if you can s
 
 The ultrasonic sensor, temperature sensor is connected as follows:
 ![circuit (1)](https://user-images.githubusercontent.com/44947706/202500320-57a9241d-7576-4ee7-90d5-d1e47466bbea.png)
+>Fig. 4. Circuit Diagram
 
 The ESP32 was supposed to be connected to a power bank which according to the manufacturer had a battery capacity of 10 000mAh. Doing some research on the internet it seems like when the Wi-Fi is used on the ESP32 it is active mode and draws around 240mA. The battery life for this setup can then be calculated as
 
@@ -297,11 +297,12 @@ How is the data transmitted to the internet or local server? Describe the packag
 
 The data is transmitted to the office's local server using Wi-Fi every second for the distance measurements and every minute the temperature measurements are sent. The reason for using Wi-Fi is because it is very easily accessible from a room in the office. With Wi-Fi I'll only be able to use this setup in an area where Wi-Fi is connected, and in this case since I use it in office environment that is perfect for this case. I use MQTT (Message Queuing Telemetry Transport) which is often used to send the transport protocol to transmit data. To able to explore if data has been sent to the broker, I used MQTT explorer which was very helpful when troubleshooting.
 ![image](https://user-images.githubusercontent.com/44947706/202859355-e33d5a0e-7fde-48a5-8a01-119fd6b319e3.png)
+>Fig. 5. MQTT explorer
 
 
 The data flow will look like this:
 ![image](https://user-images.githubusercontent.com/44947706/202858909-a2e6aec2-31ff-4d2f-b8d3-75f2df89d22f.png)
->Fig. x. Data flow from sensors to visualization dashboard.
+>Fig. 6. Data flow from sensors to visualization dashboard.
 
 
 
