@@ -149,13 +149,12 @@ which gives approximately
 
 > 10 000 / 240 = 41 hours 
 
-Making this calculation made me rethink. I thought it might be a bit to much to charge the powerbank almost every other day and since the setup has some other alternative around its setup, I decided to not use the powerbank. I will instead connect the ESP32 to a stationary computer we have in the room.
-
+Making this calculation made me rethink. I thought it might be a bit to much to charge the powerbank almost every other day and since the setup has some other alternative around its setup, I decided to not use the powerbank. I will instead connect the ESP32 to a stationary computer we have in the room. If I would have gone with the battery I would have looked more into the deep sleep and see if I could have saved some energy there. I could have also transmit the data less often to draw less power.
 
 - [x] Circuit diagram (can be hand drawn)
 - [x] Electrical calculations
 - [ ] Limitations of hardware depending on design choices.
-- [ ] Discussion about a way forward - is it possible to scale?
+- [x] Discussion about a way forward - is it possible to scale?
 
 ### Platforms and infrastructure
 ESP32
@@ -261,8 +260,8 @@ How is the data transmitted to the internet or local server? Describe the packag
 
 ### Visualisation and user interface
 I will vizulize my data on Grafana. Grafana is opensource data visualizitiona and data analytics solution, where you can create dashboards and customize how the data will be shown. I've heard about this before and was curious to try it out. 
-I needed a database to save all my data into. The choice fell on the database InfluxDb, which is easy to set up and also allows to add the time to the measurement which I liked.
-From the MQTT to the database Influx I use NodeRed which will act as a databridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a bit familiar with nodered already i chose that instead. All of the chosen platform are free and open sources which was also a reason to chose it.
+I needed a database to save all my data into. I checked into MySQL and influxDb. The choice fell on the database InfluxDb, which is easy to set up and also handles  larges volumes of times eries data better which I liked. The data there will be saved for 30 days and then deleted, which is enough for this case. 
+From the MQTT to the database Influx I use NodeRed which will act as a databridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a bit familiar with nodered already i chose that instead. All of the chosen tools are free and open sources which was also a reason to chose it.
 
 In summary I'll subscribe data from my MQTT broker to NodeRed--> InfluxDb --> Grafana. Below follow steps on how to set it all up.
 
