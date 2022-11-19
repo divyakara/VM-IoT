@@ -161,14 +161,17 @@ $$ {10 000 \over 240 }= 41 \text{ hours} $$
 
 Making this calculation made me rethink. I thought it might be a bit to much to charge the powerbank almost every other day and since the setup has some other alternative around its setup, I decided to not use the powerbank. I will instead connect the ESP32 to a stationary computer we have in the room. If I would have gone with the battery I would have looked more into the deep sleep and see if I could have saved some energy there. I could have also transmit the data less often to draw less power.
 
+``` 
 - [x] Circuit diagram (can be hand drawn)
 - [x] Electrical calculations
 - [ ] Limitations of hardware depending on design choices.
 - [x] Discussion about a way forward - is it possible to scale?
 
+``` 
 ### Platforms and infrastructure
 ESP32
 
+``` 
 Describe your choice of platform(s). You need to describe how the IoT-platform works, and also the reasoning and motivation about your choices. Have you developed your own platform, or used 
 
 Is your platform based on a local installation or a cloud? Do you plan to use a paid subscription or a free? Describe the different alternatives on going forward if you want to scale your idea.
@@ -177,12 +180,42 @@ Is your platform based on a local installation or a cloud? Do you plan to use a 
 - [ ] Explain and elaborate what made you choose this platform
 - [ ] Provide a pricing discussion. What are the prices for different platforms, and what are the pros and cons of using a low-code platform vs. developing yourself?
 
+``` 
 ### The code
-
+```
 Import core functions of your code here, and don't forget to explain what you have done. Do not put too much code here, focus on the core functionalities. Have you done a specific function that does a calculation, or are you using clever function for sending data on two networks? Or, are you checking if the value is reasonable etc. Explain what you have done, including the setup of the network, wireless, libraries and all that is needed to understand.
+```
 
+When the ESP32 is started up it will boot up and connect to the Wifi in the office using this function:
+```
+def connect_wifi(ssid, password):    
+  
+  #connect to wifi
+  wlan = network.WLAN(network.STA_IF)
+  wlan.active(True)
+  if not wlan.isconnected():
+    print('connecting to network...')
+    wlan.connect(ssid, password)
+    while not wlan.isconnected():
+        pass
+  print('Network config:', wlan.ifconfig())
+  print('Connected to ', ssid)
 
-When the ESP32 is started up it will boot up and connect to the Wifi in the office. Then it will continue to the main.py file where it starts to import all necessary libraries. It will to begin to connect to our broker and define the topics that will be sent.
+```
+
+Then it will continue to the main.py file where it starts to import all necessary libraries. 
+
+```python
+from machine import Pin, I2C
+import ssd1306
+from hcsr04 import HCSR04
+from time import sleep
+import dht
+import network
+from umqtt.simple import MQTTClient
+```
+
+It will to begin to connect to our broker and define the topics that will be sent.
 
 ```python
 #Broker
@@ -197,9 +230,7 @@ BTN_TOPIC_HUM = CLIENT_NAME.encode() + b'/LMP/humidity'
 BTN_TOPIC_DIST = CLIENT_NAME.encode() + b'/LMP/distance'
 ```
 
-Pins numbers are also defined according to the circuit diagram. 
-
-The main loop I have that will run every second is as follows:
+Pins numbers are also defined according to the circuit diagram. The main loop I have that will run every second is as follows:
 
 ```python
 graph = ""
@@ -238,20 +269,10 @@ while True:
     print('Failed to read sensor.')
 ```
 
-As can be seen I send the distance data every second, to be able to capture if someone passes the distance sensor quite fast. The temperature however won't change so fast so I don't want to send that data as often. Therefore I've added a counter which makes it possible to send the temperature data every x seconds instead.
-I started to send the temp data with a lot time in between almost every 15 minutes. But then I noticed I didn't catch the temp deviations if someone opens the window for example. Hence, I lowered it to every minute instead.
+As can be seen I send the distance data transmits every second this in order to capture if someone passes the distance sensor quite fast. The temperature however won't change so fast so I don't want to send that data as often. Therefore I've added a counter which makes it possible to send the temperature data every x seconds instead.
+I started to send the temp data with a lot time in between almost every 15 minutes. But then I noticed I didn't catch the temperature deviations if someone opens the window for example. Hence, I lowered it to every minute instead.
 
 ### The physical network layer
-
-The data is transmitted to the office's local server using WiFi every second for the distance measurments and every minute the temperature measurments are sent. The reason for using WiFi is beacuse it is very easy accessible from a room in the office. With WiFi I'll only be able to use this setup in an area where wifi is connected, and in this case since i use it in office enviroment that is perfect for this case. I use MQTT (Message Queuing Telemetry Transport) which is often used to send the transport protocol to transmit data. To able to explore if data has actually has been sent to the broker, I used MQTT explorer which was very helpful when troubleshooting.
-![image](https://user-images.githubusercontent.com/44947706/202859355-e33d5a0e-7fde-48a5-8a01-119fd6b319e3.png)
-
-
-The data flow will look like this:
-![image](https://user-images.githubusercontent.com/44947706/202858909-a2e6aec2-31ff-4d2f-b8d3-75f2df89d22f.png)
->Fig. x. Data flow from sensors to vizualization dashboard.
-
-
 
 ``` 
 How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
@@ -266,11 +287,31 @@ How is the data transmitted to the internet or local server? Describe the packag
 ``` 
 
 
+The data is transmitted to the office's local server using WiFi every second for the distance measurments and every minute the temperature measurments are sent. The reason for using WiFi is beacuse it is very easy accessible from a room in the office. With WiFi I'll only be able to use this setup in an area where wifi is connected, and in this case since i use it in office enviroment that is perfect for this case. I use MQTT (Message Queuing Telemetry Transport) which is often used to send the transport protocol to transmit data. To able to explore if data has actually has been sent to the broker, I used MQTT explorer which was very helpful when troubleshooting.
+![image](https://user-images.githubusercontent.com/44947706/202859355-e33d5a0e-7fde-48a5-8a01-119fd6b319e3.png)
+
+
+The data flow will look like this:
+![image](https://user-images.githubusercontent.com/44947706/202858909-a2e6aec2-31ff-4d2f-b8d3-75f2df89d22f.png)
+>Fig. x. Data flow from sensors to vizualization dashboard.
+
 
 
 
 
 ### Visualisation and user interface
+``` 
+Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
+
+- [x] Provide visual examples on how the visualisation/UI looks. Pictures are needed.
+- [x] How often is data saved in the database. What are the design choices?
+- [x] Explain your choice of database. What kind of database. Motivate.
+- [x] Automation/triggers of the data. Future
+- [x] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
+
+``` 
+
+
 I will vizulize my data on Grafana. Grafana is opensource data visualizitiona and data analytics solution, where you can create dashboards and customize how the data will be shown. I've heard about this before and was curious to try it out. 
 I needed a database to save all my data into. I checked into MySQL and influxDb. The choice fell on the database InfluxDb, which is easy to set up and also handles  larges volumes of times eries data better which I liked. The data there will be saved for 30 days and then deleted, which is enough for this case. 
 From the MQTT to the database Influx I use NodeRed which will act as a databridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a bit familiar with nodered already i chose that instead. All of the chosen tools are free and open sources which was also a reason to chose it.
@@ -328,23 +369,8 @@ The plan was to send an automatic alert notification when values exceeded the av
 It would have also been nice to add a trigger when the values deviate, such as turn a fan on when it gets too warm, or a heater when it gets too cold. This is something that can be developed in the future.
 
 
-``` 
-Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
 
-- [x] Provide visual examples on how the visualisation/UI looks. Pictures are needed.
-- [x] How often is data saved in the database. What are the design choices?
-- [x] Explain your choice of database. What kind of database. Motivate.
-- [x] Automation/triggers of the data. Future
-- [x] Alerting services. Are any used, what are the options and how are they in that case included. Future, email slack, discord....
-
-``` 
 ### Finalizing the design
-Final result of the project:
-
-![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
-
-This has been a rally fun project to do and I've learnt a lot from this. I wish I was able to put more time into this project than I was able to. I wanted to connect more sensors and make it more fun. It was bit dissapointing that the alerting was not working in the end, that would have made the end result much better. The Casing could've been much better. 
-
 
 ``` 
 Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in an other way, or even better? Pictures are nice!
@@ -354,5 +380,15 @@ Show the final results of your project. Give your final thoughts on how you thin
 - [ ] *Video presentation
 
 ``` 
+
+
+Final result of the project:
+
+![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
+
+This has been a rally fun project to do and I've learnt a lot from this. I wish I was able to put more time into this project than I was able to. I wanted to connect more sensors and make it more fun. It was bit dissapointing that the alerting was not working in the end, that would have made the end result much better. The Casing could've been much better. 
+
+
+
 ---
 
