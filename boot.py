@@ -3,7 +3,6 @@
 #esp.osdebug(None)
 #import webrepl
 #webrepl.start()
-# Complete project details at https://RandomNerdTutorials.com/micropython-hc-sr04-ultrasonic-esp32-esp8266/
 from hcsr04 import HCSR04
 from time import sleep
 import network
