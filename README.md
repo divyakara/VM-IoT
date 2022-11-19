@@ -169,18 +169,26 @@ Making this calculation made me rethink. I thought it might be a bit to much to 
 
 ``` 
 ### Platforms and infrastructure
-ESP32
-
 ``` 
 Describe your choice of platform(s). You need to describe how the IoT-platform works, and also the reasoning and motivation about your choices. Have you developed your own platform, or used 
 
 Is your platform based on a local installation or a cloud? Do you plan to use a paid subscription or a free? Describe the different alternatives on going forward if you want to scale your idea.
 
-- [ ] Describe platform in terms of functionality
-- [ ] Explain and elaborate what made you choose this platform
+- [x] Describe platform in terms of functionality
+- [x] Explain and elaborate what made you choose this platform
 - [ ] Provide a pricing discussion. What are the prices for different platforms, and what are the pros and cons of using a low-code platform vs. developing yourself?
 
 ``` 
+
+
+The end visualization of the data will be shown in Grafana. It is an opensource data visualizition and data analytics solution, where you can create dashboards and customize how the data will be shown in different types of modules. I've heard about this platform before and was curious to try it out hence this choice.
+
+I needed a database to save all my data into and checked into MySQL and InfluxDb. The choice fell on the database InfluxDb, which is easy to set up and also handles  larges volumes of time series data better which I thought was preferable in this case. The data in InfluxDv will be saved there for 30 days and then be deleted, which is more than enough for this case. 
+
+From the MQTT to the database Influx I use NodeRed which will act as a databridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a little familiar with node-red already i chose that instead. All of the chosen tools are open source and free and which was also a reason to chose them.
+
+
+
 ### The code
 ```
 Import core functions of your code here, and don't forget to explain what you have done. Do not put too much code here, focus on the core functionalities. Have you done a specific function that does a calculation, or are you using clever function for sending data on two networks? Or, are you checking if the value is reasonable etc. Explain what you have done, including the setup of the network, wireless, libraries and all that is needed to understand.
@@ -312,9 +320,7 @@ Describe the presentation part. How is the dashboard built? How long is the data
 ``` 
 
 
-I will vizulize my data on Grafana. Grafana is opensource data visualizitiona and data analytics solution, where you can create dashboards and customize how the data will be shown. I've heard about this before and was curious to try it out. 
-I needed a database to save all my data into. I checked into MySQL and influxDb. The choice fell on the database InfluxDb, which is easy to set up and also handles  larges volumes of times eries data better which I liked. The data there will be saved for 30 days and then deleted, which is enough for this case. 
-From the MQTT to the database Influx I use NodeRed which will act as a databridge to capture and send the data from the MQTT to InfluxDb. An alternative to this would be the Telegraf, but since I'm a bit familiar with nodered already i chose that instead. All of the chosen tools are free and open sources which was also a reason to chose it.
+
 
 In summary I'll subscribe data from my MQTT broker to NodeRed--> InfluxDb --> Grafana. Below follow steps on how to set it all up.
 
