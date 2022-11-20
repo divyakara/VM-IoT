@@ -1,5 +1,5 @@
 # Streaming sensor data to Grafana dashboard using MQTT, Node-RED and InfluxDb
-Divya Kara 
+Written by: Divya Kara 
 
 ###### tags: `IoT` `MQTT` `MicroPython` `ESP32` 
 ---
@@ -28,7 +28,7 @@ Following this guide, I expect it to take approximately 8-10h to have everything
 
 
 ### Objectives
-In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19°C and 26°C during a working day. The objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happens. I've added a distance sensor to this as well too in order to monitor if someone sits at their desk where the distance sensor is pointing towards. In the bigger picture, number of people will be a factor to be taken into account since it can affect the temperature. In this project I'll limit to only track if person sits or does not sit at their desk. After using this setup, I believe I can get an idea to when and why the temperature deviations occurs.
+In the office I'm working at the temperature in a room has been a big discussion because of its sudden and fast temperature changes. It can go between 19°C and 26°C during a working day. The objective with this project is to monitor the temperature and humidity in this room in order to analyze the temperature deviations and try to find a pattern to when and why this happens. I've added a distance sensor to this as well too in order to monitor if someone sits at their desk where the distance sensor is pointing towards. In the bigger picture, number of people should be a factor to be considered since it can affect the temperature. In this project I'll limit to only track if a person sits or does not sit at an assigned desk. After using this setup, I believe I can get an idea to when and why the temperature deviations occur.
 
 ### Material
 
@@ -61,7 +61,7 @@ In total it will cost around 640 SEK. This can of course differ depending on how
 
 ### Environment setup
 
-I chose to write my code using the Thonny IDE, which is a beginner friendly python editor. I downloaded it from their webpage https://thonny.org/. My main file and the libraries I've used is uploaded on my [Github](https://github.com/divyakara/VM-IoT). I've one library for each sensor I have (temperature/humidity, distance and a OLED screen for debugging). I have one boot file which will boot up and connect the ESP32 to wifi then a main file which holds everything together.
+I chose to write my code using the Thonny IDE, which is a beginner friendly python editor. I downloaded it from their webpage https://thonny.org/. My main file and the libraries I've used is uploaded on my [Github](https://github.com/divyakara/VM-IoT). I've one library for each sensor I have (temperature/humidity, distance and a OLED screen for debugging). I have one boot file which will boot up and connect the ESP32 to Wi-Fi then a main file which holds everything together.
 
 Before flashing the firmware MicroPython on the ESP32, it is needed to install esptool.py and setuptools using Python. 
 Write following code into your command prompt to install the requirements.
@@ -71,7 +71,7 @@ pip install setuptools
 python -m esptool
 ```
 Now we can begin to download and flash the MicroPython Firmware on ESP32.
-Connect your ESP32 to your computer using your usb cable, find and remember which COM port is used by opening the Device manager on Windows and see the COM port under "Ports". If Port is not detected you might only have a charging cable or you need to install USB drivers, in the ESP32 the CP2102 chip is used. Download the driver for CP2102 from the [Silicion Labs website](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
+Connect your ESP32 to your computer using your USB cable, find and remember which COM port is used by opening the Device manager on Windows and see the COM port under "Ports". If Port is not detected you might only have a charging cable or you need to install USB drivers, in the ESP32 the CP2102 chip is used. Download the driver for CP2102 from the [Silicon Labs website](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
 
 #### MicroPython
 Download the latest version of MicroPython from [MicroPython webpage](https://micropython.org/download/#esp32).
@@ -86,7 +86,7 @@ Now replace your COM port and bin file name to your name, hold the BOOT/FLASH bu
 ```
 > python -m esptool --chip esp32 --port COM3 write_flash -z 0x1000 esp32-20190113-v1.9.4-779-g5064df207.bin
 ```
-Your ESP32  should now be flashed with MicroPython firmware.
+Your ESP32 should now be flashed with MicroPython firmware.
 
 
 #### InfluxDb
@@ -135,7 +135,7 @@ $$ \text{Battery life (h)} = { \text{Battery capacity (mAh)} \over  \text{curren
 
 which gives approximately 
 
-$$ {10 000 \over 240 }= 41 \text{ hours} $$ 
+$$ {10 000 \over 240} = 41 \text{hours} $$ 
 
 Making this calculation made me rethink. I thought it might be a bit too much to charge the power bank almost every other day and since the setup has some other alternative around its setup, I decided to not use the power bank. I will instead connect the ESP32 to a stationary computer we have in the room. If I would have gone with the battery I would have looked more into the deep sleep and see if I could have saved some energy there. I could have also transmitted the data less often to draw less power.
 
@@ -347,15 +347,15 @@ It would have also been nice to add a trigger when the values deviate, such as t
 
 ### Finalizing the design
 
-The final result of the project:
+The result of the project:
 
 ![image](https://user-images.githubusercontent.com/44947706/202860541-f0f0dcdb-e21d-415f-a176-aa47e59a836a.png)
 
-This has been a fun project to work with and I've learnt a lot from this. I wanted to do more than the time allowed me to do in this project but I'm happy with the end result. In this project I was happy to try out Grafana and it really exceeded my expectations. It has a good looking interface on the dashbaords and it was really easy to set up with a lot of settings/options. It was only the alerting function that didn't really work for me in Grafana, It would have been needed some final touches in order to work, but even though I had that problem I'll most likely use it again in the future to visulize data. 
+This has been a fun project to work with and I've learnt a lot from this. I wanted to do more than the time allowed me to do in this project but I'm happy with the result. I was happy to try out Grafana in this project and it really exceeded my expectations. It has a good-looking dashboard, and it was easy to set up with a lot of settings/options to customize it. It was only the alerting function that didn't really work for me in Grafana, it needed some final touches in order to work. Even though I had that problem I'll most likely use it again in the future to visualize data. 
 
-The final setup could have been better. I should have 3D printed some kind of case to it to fasten the distance sensor in a more stable way and so that the wires were not so exposed.
+The final setup could have been better. Right now, the distance sensor is not very stable and it’s a high risk any cable will fall out if anyone touches it since they are so exposed. It would need a better case that can be 3D printed.
 
-If I in the future would like to have something more portable in order to move it easily, I could look more into the deep sleep mode and see if I could do a different implementation to draw less power.
+If I would want a more portable solution in the future that can use a power bank instead of connecting it to a stationary computer, I should look more into the deep sleep mode and how often I send data. If I’m able to make a different implementation that will draw less power, it will be need less maintenance.
 
 
 ---
